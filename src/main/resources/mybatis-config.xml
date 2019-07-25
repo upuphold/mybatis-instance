@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.uuh.entity"/>
+    </typeAliases>
+    <!--别名，自动扫描com.uuh.entity下的类型，使得在后续配置文件Category.xml中使用resultType的时候，可以直接使用Category,而不必写全-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/uuh?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--数据库连接配置-->
+    <mappers>
+        <mapper resource="Category.xml"/>
+        <mapper resource="Product.xml"/>
+    </mappers>
+    <!--映射Category.xml-->
+</configuration>
